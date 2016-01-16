@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 
 class JCookieAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/jquery-cookie/src';
+    public $sourcePath = '@bower/jquery-cookie';
 
     public $js
         = [

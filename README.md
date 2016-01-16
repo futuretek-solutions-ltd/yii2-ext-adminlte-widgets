@@ -8,12 +8,12 @@ Usage
 
 ```php
     <?= futuretek\adminlte\widget\Box::begin([
-             'type'=>\insolita\wgadminlte\Box::TYPE_PRIMARY,
+             'type'=>futuretek\adminlte\widget\Box::TYPE_PRIMARY,
              'solid'=>true,
-             'left_tools'=>'<button class="btn btn-success btn-xs create_button" ><i class="fa fa-plus-circle"></i> Добавить</button>',
-             'tooltip'=>'Описание содаржимого',
-             'title'=>'Управление пользователями',
-             'footer'=>'Всего '.User::counter().' активных пользователей',
+             'left_tools'=>'<button class="btn btn-success btn-xs create_button" ><i class="fa fa-plus-circle"></i> Something</button>',
+             'tooltip'=>'Tooltip',
+             'title'=>'Title',
+             'footer'=>'Footer',
              'collapse'=>true
          ])?>
         ANY BOX CONTENT HERE
@@ -24,7 +24,7 @@ Usage
 
 ```php
    <?= futuretek\adminlte\widget\Tile::begin([
-               'type'=>\insolita\wgadminlte\Tile::TYPE_RED,
+               'type'=>futuretek\adminlte\widget\Tile::TYPE_RED,
                'tooltip'=>'Useful information!',
                'title'=>'Attention!',
                'collapse'=>false
@@ -40,7 +40,7 @@ Usage
 
 ```php
    <?= futuretek\adminlte\widget\SmallBox::widget([
-        'type'=>\insolita\wgadminlte\SmallBox::TYPE_PURPLE,
+        'type'=>futuretek\adminlte\widget\SmallBox::TYPE_PURPLE,
         'head'=>'90%',
         'text'=>'Free Space',
         'icon'=>'fa fa-cloud-download',
@@ -53,8 +53,8 @@ Usage
 
 ```php
     <?= futuretek\adminlte\widget\InfoBox::widget([
-       'boxBg'=>\insolita\wgadminlte\InfoBox::TYPE_AQUA,
-       'iconBg'=>\insolita\wgadminlte\InfoBox::TYPE_GREEN,
+       'boxBg'=>futuretek\adminlte\widget\InfoBox::TYPE_AQUA,
+       'iconBg'=>futuretek\adminlte\widget\InfoBox::TYPE_GREEN,
        'number'=>100500,
        'text'=>'Test Three',
        'icon'=>'fa fa-bolt',
@@ -67,7 +67,7 @@ Usage
 
 ```php
    <?= futuretek\adminlte\widget\Callout::widget([
-        'type'=>\insolita\wgadminlte\Alert::TYPE_WARNING,
+        'type'=>futuretek\adminlte\widget\Alert::TYPE_WARNING,
         'head'=>'Operation Complete',
         'text'=>'Something text bla-bla-bla bla-bla-blabla-bla-blabla-bla-blabla-bla-blabla-bla-blabla-bla-bla'
     ]);?>
@@ -77,7 +77,7 @@ Usage
 
 ```php
     <?= futuretek\adminlte\widget\Alert::widget([
-        'type'=>\insolita\wgadminlte\Alert::TYPE_SUCCESS,
+        'type'=>futuretek\adminlte\widget\Alert::TYPE_SUCCESS,
         'text'=>'Operation Complete',
         'closable'=>true
     ]);?>
@@ -142,7 +142,7 @@ Yii::$app->session->setFlash('success-second','Message');
                                      'time' => 1400880100,
                                      'body' => 'Well, i`m informative body'
                                      'iconClass'=>'fa fa-cloud',
-                                     'iconBg'=>insolita\wgadminlte\Timeline::TYPE_BLUE'
+                                     'iconBg'=>futuretek\adminlte\widget\Timeline::TYPE_BLUE'
                                  ]
                              ),
                               ],
@@ -168,7 +168,7 @@ for ($i = 0; $i < 5; $i++) {
      $footer='something in foot '.$i.'_'.$j;
      $obj = Yii::createObject(
          [
-             'class' => \insolita\wgadminlte\ExampleTimelineItem::className(),  //Example of customization TimelineItem Object
+             'class' => futuretek\adminlte\widget\ExampleTimelineItem::className(),  //Example of customization TimelineItem Object
              'time' => $time - mt_rand(0, 3600 * 11),
              'header' =>'HEADER NUMBER '.$i.'_'.$j,
              'body' => 'Well, i`m informative body '.$i.'_'.$j,
@@ -184,16 +184,16 @@ for ($i = 0; $i < 5; $i++) {
 
 //Next we can show its in our widget
 
-echo \insolita\wgadminlte\Timeline::widget(
+echo futuretek\adminlte\widget\Timeline::widget(
           [
               'defaultDateBg' => function ($data) {
                   $d = date('j', $data);
                   if ($d <= 10) {
-                      return \insolita\wgadminlte\Timeline::TYPE_FUS;
+                      return futuretek\adminlte\widget\Timeline::TYPE_FUS;
                   } elseif ($d <= 20) {
-                      return \insolita\wgadminlte\Timeline::TYPE_MAR;
+                      return futuretek\adminlte\widget\Timeline::TYPE_MAR;
                   } else {
-                      return \insolita\wgadminlte\Timeline::TYPE_PURPLE;
+                      return futuretek\adminlte\widget\Timeline::TYPE_PURPLE;
                   }
               },
               'items' => $timeline_items,
