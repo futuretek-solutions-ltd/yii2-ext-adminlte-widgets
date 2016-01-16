@@ -61,6 +61,11 @@ class Box extends Widget
     public $collapse = false;
 
     /**
+     * @var boolean $collapseDefault Start as collapsed?
+     */
+    public $collapseDefault = false;
+
+    /**
      * @var boolean $collapse_remember - set cookies for rememer collapse stage*
      */
     public $collapse_remember = true;
