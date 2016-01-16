@@ -1,22 +1,47 @@
 {
-    "name": "insolita/yii2-adminlte-widgets",
-    "description": "Widgets for AdminLTE theme (Box with remember collapse state, Timeline, Tile, Callout, SmallBox etc)",
+    "name": "futuretek/yii2-adminlte-widgets",
+    "description": "Widgets for AdminLTE theme",
     "type": "yii2-extension",
-    "keywords": ["yii2","widget","adminlte"],
-    "license": "MIT",
+    "keywords": [
+        "extension",
+        "widget",
+        "adminlte",
+        "yii2"
+    ],
+    "license": "proprietary",
+    "homepage": "http://www.futuretek.cz/",
     "authors": [
         {
-            "name": "insolita",
-            "email": "donnainsolita@gmail.com"
+            "name": "Lukas Cerny",
+            "email": "lukas.cerny@futuretek.cz",
+            "homepage": "http://www.futuretek.cz",
+            "role": "Developer"
         }
     ],
-    "require": {
-        "yiisoft/yii2": "*",
-	    "bower-asset/jquery-cookie":"*"
+    "support": {
+        "issues": "https://jira.futuretek.cz/browse/YII",
+        "wiki": "https://doc.futuretek.cz/display/YII",
+        "source": "https://git.futuretek.cz/projects/YII"
     },
+    "require": {
+        "php": ">=5.5.0",
+        "yiisoft/yii2": "2.0.*",
+        "bower-asset/jquery-cookie": "*"
+    },
+    "repositories": [
+        {
+            "url": "http://composer.futuretek.cz",
+            "type": "composer"
+        }
+    ],
     "autoload": {
         "psr-4": {
-            "insolita\\wgadminlte\\": ""
+            "futuretek\\adminlte\\widget\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
         }
     }
 }

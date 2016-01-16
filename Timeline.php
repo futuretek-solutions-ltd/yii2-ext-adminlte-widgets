@@ -1,10 +1,10 @@
 <?php
 
-namespace insolita\wgadminlte;
+namespace futuretek\adminlte\widget;
 
 use yii\base\InvalidConfigException;
-use yii\helpers\Html;
 use yii\base\Widget;
+use yii\helpers\Html;
 
 /**
  * This is just an example.
@@ -48,15 +48,15 @@ class Timeline extends Widget
      * @example
      * 'defaultDateBg'=>function($data){
      *      if(is_string($data)){
-     *          return insolita\wgadminlte\Timeline::TYPE_BLUE;
+     *          return futuretek\adminlte\widget\Timeline::TYPE_BLUE;
      *      }elseif($data->type==1){
-     *          return insolita\wgadminlte\Timeline::TYPE_LBLUE;
+     *          return futuretek\adminlte\widget\Timeline::TYPE_LBLUE;
      *      }else{
-     *         return insolita\wgadminlte\Timeline::TYPE_TEAL;
+     *         return futuretek\adminlte\widget\Timeline::TYPE_TEAL;
      *      }
      * }
      **/
-    public $defaultDateBg=self::TYPE_GREEN;
+    public $defaultDateBg = self::TYPE_GREEN;
 
     /** callable function(obj) for prepare data
      *
@@ -71,64 +71,66 @@ class Timeline extends Widget
      * }
      *
      **/
-    public $dateFunc=null;
-
+    public $dateFunc = null;
 
 
     public function run()
     {
-        echo Html::tag('ul',$this->renderItems(),['class'=>'timeline']);
+        echo Html::tag('ul', $this->renderItems(), ['class' => 'timeline']);
     }
 
-    public function renderItems(){
-        $res='';
-         if(!empty($this->items)){
-             foreach($this->items as $data=>$events){
-                 if(!empty($events)){
-                     $res.= $this->renderGroup($data);
-                     foreach($events as $event){
-                         $res.=$this->renderEvent($event);
-                     }
-                 }
-             }
-         }
+    public function renderItems()
+    {
+        $res = '';
+        if (!empty($this->items)) {
+            foreach ($this->items as $data => $events) {
+                if (!empty($events)) {
+                    $res .= $this->renderGroup($data);
+                    foreach ($events as $event) {
+                        $res .= $this->renderEvent($event);
+                    }
+                }
+            }
+        }
         return $res;
     }
 
-    public function renderGroup($data){
-        $res='';
-        $realdata=is_null($this->dateFunc)?$data:call_user_func($this->dateFunc,$data);
-        if(is_string($this->defaultDateBg)){
-            $res=Html::tag('span',$realdata,['class'=>'bg-'.$this->defaultDateBg]);
-        }elseif(is_callable($this->defaultDateBg)){
-            $class=call_user_func($this->defaultDateBg,$data);
-            $res=Html::tag('span',$realdata,['class'=>'bg-'.$class]);
+    public function renderGroup($data)
+    {
+        $res = '';
+        $realdata = is_null($this->dateFunc) ? $data : call_user_func($this->dateFunc, $data);
+        if (is_string($this->defaultDateBg)) {
+            $res = Html::tag('span', $realdata, ['class' => 'bg-' . $this->defaultDateBg]);
+        } elseif (is_callable($this->defaultDateBg)) {
+            $class = call_user_func($this->defaultDateBg, $data);
+            $res = Html::tag('span', $realdata, ['class' => 'bg-' . $class]);
         }
-        return Html::tag('li',$res,['class'=>'time-label']);
+        return Html::tag('li', $res, ['class' => 'time-label']);
     }
 
-    public function renderEvent($ev){
-        $res='';
-        if($ev instanceof TimelineItem){
-            $res.='<i class="'.$ev->iconClass.' bg-'.$ev->iconBg.'"></i>';
-            $item='';
-            if($ev->time){
-                $item.=Html::tag('span',Html::tag('i','',['class'=>'fa fa-clock-o']).' '.$ev->time,['class'=>'time']);
+    public function renderEvent($ev)
+    {
+        $res = '';
+        if ($ev instanceof TimelineItem) {
+            $res .= '<i class="' . $ev->iconClass . ' bg-' . $ev->iconBg . '"></i>';
+            $item = '';
+            if ($ev->time) {
+                $item .= Html::tag('span', Html::tag('i', '', ['class' => 'fa fa-clock-o']) . ' ' . $ev->time, ['class' => 'time']);
             }
-            if($ev->header){
-                $item.=Html::tag('h3',$ev->header,['class'=>'timeline-header '.(!$ev->body && !$ev->footer?'no-border':'')]);
+            if ($ev->header) {
+                $item .= Html::tag('h3', $ev->header, ['class' => 'timeline-header ' . (!$ev->body && !$ev->footer ? 'no-border' : '')]);
             }
-            $item.=Html::tag('div',$ev->body,['class'=>'timeline-body']);
-            if($ev->footer){
-                $item.=Html::tag('div',$ev->footer,['class'=>'timeline-footer']);
+            $item .= Html::tag('div', $ev->body, ['class' => 'timeline-body']);
+            if ($ev->footer) {
+                $item .= Html::tag('div', $ev->footer, ['class' => 'timeline-footer']);
             }
-            $res.=Html::tag('div',$item,['class'=>'timeline-item']);
+            $res .= Html::tag('div', $item, ['class' => 'timeline-item']);
 
-        }else{
+        } else {
             throw new InvalidConfigException('event must be instanceof TimelineItem');
         }
 
-        return Html::tag('li',$res);
+        return Html::tag('li', $res);
     }
 
 }

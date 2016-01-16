@@ -1,8 +1,8 @@
 <?php
 
-namespace insolita\wgadminlte;
+namespace futuretek\adminlte\widget;
 
-use \yii\bootstrap\Widget;
+use yii\bootstrap\Widget;
 use yii\helpers\Html;
 
 /**

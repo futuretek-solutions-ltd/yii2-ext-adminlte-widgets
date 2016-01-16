@@ -1,9 +1,9 @@
 <?php
 
-namespace insolita\wgadminlte;
+namespace futuretek\adminlte\widget;
 
-use yii\helpers\Html;
 use yii\bootstrap\Widget;
+use yii\helpers\Html;
 
 /**
  * InfoBox for AdminLte
@@ -69,18 +69,18 @@ class InfoBox extends Widget
     public function run()
     {
         Html::addCssClass($this->options, 'info-box');
-        if($this->boxBg){
+        if ($this->boxBg) {
             Html::addCssClass($this->options, 'bg-' . $this->boxBg);
         }
-        $icon=Html::tag('span','<i class="' . $this->icon . '"></i>',['class'=>'info-box-icon'.($this->iconBg?' bg-'.$this->iconBg:'')]);
-        $content=($this->text?Html::tag('span',$this->text,['class'=>'info-box-text']):'');
-        $content.=($this->number?Html::tag('span',$this->number,['class'=>'info-box-number']):'');
-        $content.=(!is_null($this->progress)?Html::tag('div','<div class="progress-bar" style="width: '.$this->progress.'%"></div>>',['class'=>'progress']):'');
-        $content.=($this->progressText?Html::tag('span',$this->progressText,['class'=>'progress-description']):'');
-        $inner=Html::tag('div',$content,['class'=>'info-box-content']);
+        $icon = Html::tag('span', '<i class="' . $this->icon . '"></i>', ['class' => 'info-box-icon' . ($this->iconBg ? ' bg-' . $this->iconBg : '')]);
+        $content = ($this->text ? Html::tag('span', $this->text, ['class' => 'info-box-text']) : '');
+        $content .= ($this->number ? Html::tag('span', $this->number, ['class' => 'info-box-number']) : '');
+        $content .= (!is_null($this->progress) ? Html::tag('div', '<div class="progress-bar" style="width: ' . $this->progress . '%"></div>>', ['class' => 'progress']) : '');
+        $content .= ($this->progressText ? Html::tag('span', $this->progressText, ['class' => 'progress-description']) : '');
+        $inner = Html::tag('div', $content, ['class' => 'info-box-content']);
 
         echo Html::tag(
-            'div', $icon.$inner, $this->options
+            'div', $icon . $inner, $this->options
         );
     }
 

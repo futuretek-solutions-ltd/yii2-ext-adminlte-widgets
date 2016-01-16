@@ -1,15 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Insolita
- * Date: 11.11.14
- * Time: 0:50
- */
 
-namespace insolita\wgadminlte;
+namespace futuretek\adminlte\widget;
 
-use \yii\web\AssetBundle;
-class JCookieAsset  extends AssetBundle{
+use yii\web\AssetBundle;
+
+class JCookieAsset extends AssetBundle
+{
     public $sourcePath = '@bower/jquery-cookie/src';
 
     public $js
@@ -17,8 +13,9 @@ class JCookieAsset  extends AssetBundle{
             'jquery.cookie.js',
         ];
 
-    public $depends=[
-        'yii\web\YiiAsset'
+    public $depends = [
+        'yii\web\YiiAsset',
+        'dmstr\web\AdminLteAsset',
     ];
 }
 

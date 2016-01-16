@@ -1,8 +1,8 @@
 <?php
 
-namespace insolita\wgadminlte;
+namespace futuretek\adminlte\widget;
 
-use \yii\bootstrap\Widget;
+use yii\bootstrap\Widget;
 use yii\helpers\Html;
 
 /**
@@ -50,7 +50,7 @@ class Alert extends Widget
                     break;
                 }
                 default: {
-                $this->icon = 'fa fa-question';
+                    $this->icon = 'fa fa-question';
                 }
             }
         }
@@ -60,7 +60,7 @@ class Alert extends Widget
     {
         Html::addCssClass($this->options, 'alert');
         Html::addCssClass($this->options, 'alert-' . $this->type);
-        if($this->closable){
+        if ($this->closable) {
             Html::addCssClass($this->options, 'alert-dismissable');
         }
         echo Html::tag('div',

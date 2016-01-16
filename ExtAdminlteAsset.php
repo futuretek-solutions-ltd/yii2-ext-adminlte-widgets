@@ -1,15 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Insolita
- * Date: 11.11.14
- * Time: 0:50
- */
 
-namespace insolita\wgadminlte;
+namespace futuretek\adminlte\widget;
 
-use \yii\web\AssetBundle;
-class ExtAdminlteAsset  extends AssetBundle{
+use yii\web\AssetBundle;
+
+class ExtAdminlteAsset extends AssetBundle
+{
     public $sourcePath = '@vendor/insolita/yii2-adminlte-widgets/js';
 
     public $js
@@ -17,9 +13,10 @@ class ExtAdminlteAsset  extends AssetBundle{
             'admlteext.js',
         ];
 
-    public $depends=[
+    public $depends = [
         'yii\web\YiiAsset',
-        'insolita\wgadminlte\JCookieAsset'
+        'dmstr\web\AdminLteAsset',
+        'futuretek\adminlte\widget\JCookieAsset'
     ];
 }
 

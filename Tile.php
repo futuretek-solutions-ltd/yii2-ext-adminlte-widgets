@@ -1,8 +1,7 @@
 <?php
 
-namespace insolita\wgadminlte;
+namespace futuretek\adminlte\widget;
 
-use yii\web\JsExpression;
 use yii\bootstrap\Widget;
 use yii\helpers\Html;
 
@@ -35,8 +34,8 @@ class Tile extends Widget
     /**@var string $tooltip box -tooltip* */
     public $tooltip = '';
 
-    /**@var string $tooltip_placement -top/bottom/left/or right **/
-    public $tooltip_placement='bottom';
+    /**@var string $tooltip_placement -top/bottom/left/or right * */
+    public $tooltip_placement = 'bottom';
 
     /**@var string $title * */
     public $title = '';
@@ -47,16 +46,16 @@ class Tile extends Widget
     /**@var boolean $collapse show or not Box - collapse button* */
     public $collapse = false;
 
-    /**@var boolean if true - tile will be collapsed by default **/
+    /**@var boolean if true - tile will be collapsed by default * */
     public $collapseDefault = false;
 
     /**@var boolean $collapse_remember - set cookies for rememer collapse stage* */
     public $collapse_remember = true;
 
-    /**@var string $custom_tools code of custom box toolbar**/
+    /**@var string $custom_tools code of custom box toolbar* */
     public $custom_tools = '';
 
-    /**@var string $left_tools code of custom box toolbar in left corner**/
+    /**@var string $left_tools code of custom box toolbar in left corner* */
     public $left_tools = '';
 
 
@@ -65,36 +64,36 @@ class Tile extends Widget
     public function init()
     {
         if (!isset($this->options['id'])) {
-            $this->_cid =$this->options['id'] = 'tilec_'.$this->getId();
+            $this->_cid = $this->options['id'] = 'tilec_' . $this->getId();
         }
 
         $collapseTag = 'collapse';
-        Html::addCssClass($this->options,'box');
-        Html::addCssClass($this->options,'box-solid');
-        Html::addCssClass($this->options,'bg-' . $this->type);
-        if($this->collapse and $this->collapseDefault and !$this->collapse_remember){
-            Html::addCssClass($this->options,'collapsed-box');
+        Html::addCssClass($this->options, 'box');
+        Html::addCssClass($this->options, 'box-solid');
+        Html::addCssClass($this->options, 'bg-' . $this->type);
+        if ($this->collapse and $this->collapseDefault and !$this->collapse_remember) {
+            Html::addCssClass($this->options, 'collapsed-box');
         }
         $this->registerJs();
-        echo '<div '.Html::renderTagAttributes($this->options).'>'
+        echo '<div ' . Html::renderTagAttributes($this->options) . '>'
             . (!$this->title && !$this->collapse && !$this->custom_tools && !$this->left_tools
                 ? ''
                 : '<div class="box-header"'
-                . (!$this->tooltip ? '' : 'data-toggle="tooltip" data-original-title="' . $this->tooltip . '" data-placement="'.$this->tooltip_placement.'"') . '>'
-                . (!$this->left_tools?'':'<div class="box-tools pull-left">'.$this->left_tools.'</div>')
+                . (!$this->tooltip ? '' : 'data-toggle="tooltip" data-original-title="' . $this->tooltip . '" data-placement="' . $this->tooltip_placement . '"') . '>'
+                . (!$this->left_tools ? '' : '<div class="box-tools pull-left">' . $this->left_tools . '</div>')
                 . (!$this->title ? '' : '<h3 class="box-title">' . $this->title . '</h3>')
                 . (!$this->collapse
                     ? ''
                     :
                     (!$this->custom_tools ?
-                        '<div class="box-tools pull-right"><button class="btn btn-primary btn-xs" data-widget="'.$collapseTag.'" id="'
+                        '<div class="box-tools pull-right"><button class="btn btn-primary btn-xs" data-widget="' . $collapseTag . '" id="'
                         . $this->_cid . '_btn"><i class="fa fa-minus"></i></button></div>' : ''))
                 . (!$this->custom_tools
                     ? ''
                     : '<div class="box-tools pull-right">' . $this->custom_tools
                     . (!$this->collapse
                         ? ''
-                        : '<button class="btn btn-primary btn-xs" data-widget="'.$collapseTag.'" id="' . $this->_cid . '_btn">
+                        : '<button class="btn btn-primary btn-xs" data-widget="' . $collapseTag . '" id="' . $this->_cid . '_btn">
                                    <i class="fa fa-minus"></i></button>')
                     . '</div>')
                 . '</div>')

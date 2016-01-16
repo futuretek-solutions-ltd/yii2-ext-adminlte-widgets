@@ -1,80 +1,13 @@
 Widgets for AdminLte theme
 ===========================
 
- * Box-widget with support collapse buttons and can save collapsed state in cookie support solid style
- * Tile-widget - similar as box, with same options but with background
- * Smallbox-widget
- * Alert-widget
- * Callout-widget
- * Infobox-widget
- * Flash-Alerts
- * [Timeline Widget] (http://almsaeedstudio.com/themes/AdminLTE/pages/UI/timeline.html) - see more info about it in file [Timeline.md](https://github.com/Insolita/yii2-adminlte-widgets/blob/master/Timeline.md)
-
-See http://almsaeedstudio.com/themes/AdminLTE/pages/widgets.html  and http://almsaeedstudio.com/themes/AdminLTE/pages/UI/general.html examples
-
-[CHANGELOG](https://github.com/Insolita/yii2-adminlte-widgets/blob/master/CHANGELOG.md)
-
-Independent of any AdminLte AssetBundles
-If you want use cookie collapsing boxes, set correct dependencies in AssetManager
-
-```php
-'components'=>[
-//--------
-     'assetManager'=>[
-                 'class'=>'yii\web\AssetManager',
-                 'bundles'=>[
-                 //--------
-                     'insolita\wgadminlte\ExtAdminlteAsset'=>[
-                         'depends'=>[
-                             'yii\web\YiiAsset',
-                             'path\to\AdminLteAsset',
-                             'insolita\wgadminlte\JCookieAsset'
-                         ]
-                     ],
-                     'insolita\wgadminlte\JCookieAsset'=>[
-                           'depends'=>[
-                               'yii\web\YiiAsset',
-                               'path\to\AdminLteAsset'
-                          ]
-                     ],
-
-             ],
-     ]
-//--------
-
-]
-
-```
-
-
-
-Installation
-------------
-
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
-
-Either run
-
-```
-php composer.phar require --prefer-dist insolita/yii2-adminlte-widgets "*"
-```
-
-or add
-
-```
-"insolita/yii2-adminlte-widgets": "*"
-```
-
-to the require section of your `composer.json` file.
-
-
-
 Usage
 ------
- * Box
+
+* Box
 
 ```php
-    <?php \insolita\wgadminlte\Box::begin([
+    <?= futuretek\adminlte\widget\Box::begin([
              'type'=>\insolita\wgadminlte\Box::TYPE_PRIMARY,
              'solid'=>true,
              'left_tools'=>'<button class="btn btn-success btn-xs create_button" ><i class="fa fa-plus-circle"></i> Добавить</button>',
@@ -84,12 +17,13 @@ Usage
              'collapse'=>true
          ])?>
         ANY BOX CONTENT HERE
-    <?php \insolita\wgadminlte\Box::end()?>
+    <?= futuretek\adminlte\widget\Box::end()?>
 ```
- * Tile
+
+* Tile
 
 ```php
-   <?php \insolita\wgadminlte\Tile::begin([
+   <?= futuretek\adminlte\widget\Tile::begin([
                'type'=>\insolita\wgadminlte\Tile::TYPE_RED,
                'tooltip'=>'Useful information!',
                'title'=>'Attention!',
@@ -99,64 +33,67 @@ Usage
          ANY BOX CONTENT HERE
           ANY BOX CONTENT HERE
            ANY BOX CONTENT HERE
-   <?php \insolita\wgadminlte\Tile::end()?>
-```
- * SmallBox
-
- ```php
-   <?php echo \insolita\wgadminlte\SmallBox::widget([
-	                    'type'=>\insolita\wgadminlte\SmallBox::TYPE_PURPLE,
-	                    'head'=>'90%',
-	                    'text'=>'Free Space',
-	                    'icon'=>'fa fa-cloud-download',
-	                    'footer'=>'Подробнее <i class="fa fa-hand-o-right"></i>',
-	                    'footer_link'=>'#'
-	                ]);?>
+   <?= futuretek\adminlte\widget\Tile::end()?>
 ```
 
- * InfoBox
+* SmallBox
 
- ```php
-   <?php echo \insolita\wgadminlte\InfoBox::widget([
-                       'boxBg'=>\insolita\wgadminlte\InfoBox::TYPE_AQUA,
-                       'iconBg'=>\insolita\wgadminlte\InfoBox::TYPE_GREEN,
-                       'number'=>100500,
-                       'text'=>'Test Three',
-                       'icon'=>'fa fa-bolt',
-                       'progress'=>66,
-                       'progressText'=>'Something about this'
-                   ])?>
-```
- * Callout
 ```php
-   <?=\insolita\wgadminlte\Callout::widget([
-            'type'=>\insolita\wgadminlte\Alert::TYPE_WARNING,
-            'head'=>'Operation Complete',
-            'text'=>'Something text bla-bla-bla bla-bla-blabla-bla-blabla-bla-blabla-bla-blabla-bla-blabla-bla-bla'
-        ]);?>
-
+   <?= futuretek\adminlte\widget\SmallBox::widget([
+        'type'=>\insolita\wgadminlte\SmallBox::TYPE_PURPLE,
+        'head'=>'90%',
+        'text'=>'Free Space',
+        'icon'=>'fa fa-cloud-download',
+        'footer'=>'Подробнее <i class="fa fa-hand-o-right"></i>',
+        'footer_link'=>'#'
+    ]);?>
 ```
- * Alert
+
+* InfoBox
+
 ```php
-   <?=\insolita\wgadminlte\Alert::widget([
-              'type'=>\insolita\wgadminlte\Alert::TYPE_SUCCESS,
-              'text'=>'Operation Complete',
-              'closable'=>true
-          ]);?>
+    <?= futuretek\adminlte\widget\InfoBox::widget([
+       'boxBg'=>\insolita\wgadminlte\InfoBox::TYPE_AQUA,
+       'iconBg'=>\insolita\wgadminlte\InfoBox::TYPE_GREEN,
+       'number'=>100500,
+       'text'=>'Test Three',
+       'icon'=>'fa fa-bolt',
+       'progress'=>66,
+       'progressText'=>'Something about this'
+    ])?>
 ```
 
+* Callout
+
+```php
+   <?= futuretek\adminlte\widget\Callout::widget([
+        'type'=>\insolita\wgadminlte\Alert::TYPE_WARNING,
+        'head'=>'Operation Complete',
+        'text'=>'Something text bla-bla-bla bla-bla-blabla-bla-blabla-bla-blabla-bla-blabla-bla-blabla-bla-bla'
+    ]);?>
+```
+
+* Alert
+
+```php
+    <?= futuretek\adminlte\widget\Alert::widget([
+        'type'=>\insolita\wgadminlte\Alert::TYPE_SUCCESS,
+        'text'=>'Operation Complete',
+        'closable'=>true
+    ]);?>
+```
 
 Add in layout
 
 ```php
-<?=\insolita\wgadminlte\FlashAlerts::widget([
-                'errorIcon'=>'<i class="fa fa-warning"></i>',
-                'successIcon'=>'<i class="fa fa-check"></i>',
-                'successTitle'=>'Done!',
-                'closable'=>true,
-                'encode'=>false,
-                'bold'=>false
-                ]);?>
+    <?= futuretek\adminlte\widget\FlashAlerts::widget([
+        'errorIcon'=>'<i class="fa fa-warning"></i>',
+        'successIcon'=>'<i class="fa fa-check"></i>',
+        'successTitle'=>'Done!',
+        'closable'=>true,
+        'encode'=>false,
+        'bold'=>false
+    ]);?>
 ```
 
 And set flash messages anywhere
@@ -169,5 +106,100 @@ Yii::$app->session->setFlash('success-first','Message');
 Yii::$app->session->setFlash('success-second','Message');
 ```
 
+* Timeline
+ 
+```php
+<?= futuretek\adminlte\widget\Timeline::widget(
+     [
+         'defaultDateBg' => futuretek\adminlte\widget\Timeline::TYPE_PURPLE, //default background for date label
+         'items' => [
+                '1381767094'=>[
+                     Yii::createObject(
+                                  [
+                                      'class' => futuretek\adminlte\widget\TimelineItem::className(),
+                                      'time' => 1381767094,
+                                      'header' =>'SOME HEADER',
+                                      'body' => 'Well, i`m informative body'
+                                      'iconClass'=>'fa fa-beer',
+                                      'iconBg'=>'orange'
+                                  ]
+                              ),
+                      Yii::createObject(
+                                   [
+                                       'class' => futuretek\adminlte\widget\TimelineItem::className(),
+                                       'time' => 1381767098,
+                                       'header' =>'SOME HEADER',
+                                       'iconClass'=>'fa fa-beer',
+                                       'iconBg'=>'green'
+                                   ]
+                                       )
 
+                ],
+                '1400880100'=>[
+                      Yii::createObject(
+                                 [
+                                     'class' => futuretek\adminlte\widget\TimelineItem::className(),
+                                     'time' => 1400880100,
+                                     'body' => 'Well, i`m informative body'
+                                     'iconClass'=>'fa fa-cloud',
+                                     'iconBg'=>insolita\wgadminlte\Timeline::TYPE_BLUE'
+                                 ]
+                             ),
+                              ],
+                '1353182717'=>[....],
+                '1331361126'=>[....],
+         ],
+         'dataFunc' => function ($data) { return date('d.m, Y', $data); }
+     ]
+ ) ?>
+```
+
+Example TimeLine Generator
+
+```php
+<?php
+$timeline_items=[];
+for ($i = 0; $i < 5; $i++) {
+ $time = (time() - mt_rand(3600, 3600 * 24 * 7 * 30 * 5));
+ $objcnt = mt_rand(1, 6);
+ $events = [];
+ for ($j = 0; $j < $objcnt; $j++) {
+     $isFoot = mt_rand(0, 1);
+     $footer='something in foot '.$i.'_'.$j;
+     $obj = Yii::createObject(
+         [
+             'class' => \insolita\wgadminlte\ExampleTimelineItem::className(),  //Example of customization TimelineItem Object
+             'time' => $time - mt_rand(0, 3600 * 11),
+             'header' =>'HEADER NUMBER '.$i.'_'.$j,
+             'body' => 'Well, i`m informative body '.$i.'_'.$j,
+             'type' => mt_rand(0, 1),
+             'footer' => $isFoot?$footer:''
+         ]
+     );
+     $events[] = $obj;
+ }
+ $timeline_items[$time] = $events;
+}
+
+
+//Next we can show its in our widget
+
+echo \insolita\wgadminlte\Timeline::widget(
+          [
+              'defaultDateBg' => function ($data) {
+                  $d = date('j', $data);
+                  if ($d <= 10) {
+                      return \insolita\wgadminlte\Timeline::TYPE_FUS;
+                  } elseif ($d <= 20) {
+                      return \insolita\wgadminlte\Timeline::TYPE_MAR;
+                  } else {
+                      return \insolita\wgadminlte\Timeline::TYPE_PURPLE;
+                  }
+              },
+              'items' => $timeline_items,
+              'dateFunc' => function ($data) { return date('d.m, Y', $data); }
+          ]
+      )
+
+```
 
