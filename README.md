@@ -7,7 +7,7 @@ Usage
 * Box
 
 ```php
-    <?= futuretek\adminlte\widget\Box::begin([
+    <?php futuretek\adminlte\widget\Box::begin([
              'type'=>futuretek\adminlte\widget\Box::TYPE_PRIMARY,
              'solid'=>true,
              'left_tools'=>'<button class="btn btn-success btn-xs create_button" ><i class="fa fa-plus-circle"></i> Something</button>',
@@ -17,13 +17,13 @@ Usage
              'collapse'=>true
          ])?>
         ANY BOX CONTENT HERE
-    <?= futuretek\adminlte\widget\Box::end()?>
+    <?php futuretek\adminlte\widget\Box::end()?>
 ```
 
 * Tile
 
 ```php
-   <?= futuretek\adminlte\widget\Tile::begin([
+   <?php futuretek\adminlte\widget\Tile::begin([
                'type'=>futuretek\adminlte\widget\Tile::TYPE_RED,
                'tooltip'=>'Useful information!',
                'title'=>'Attention!',
@@ -33,7 +33,7 @@ Usage
          ANY BOX CONTENT HERE
           ANY BOX CONTENT HERE
            ANY BOX CONTENT HERE
-   <?= futuretek\adminlte\widget\Tile::end()?>
+   <?php futuretek\adminlte\widget\Tile::end()?>
 ```
 
 * SmallBox
@@ -119,9 +119,9 @@ Yii::$app->session->setFlash('success-second','Message');
                                       'class' => futuretek\adminlte\widget\TimelineItem::className(),
                                       'time' => 1381767094,
                                       'header' =>'SOME HEADER',
-                                      'body' => 'Well, i`m informative body'
+                                      'body' => 'Well, i`m informative body',
                                       'iconClass'=>'fa fa-beer',
-                                      'iconBg'=>'orange'
+                                      'iconBg'=>'orange',
                                   ]
                               ),
                       Yii::createObject(
@@ -130,7 +130,7 @@ Yii::$app->session->setFlash('success-second','Message');
                                        'time' => 1381767098,
                                        'header' =>'SOME HEADER',
                                        'iconClass'=>'fa fa-beer',
-                                       'iconBg'=>'green'
+                                       'iconBg'=>'green',
                                    ]
                                        )
 
@@ -140,16 +140,14 @@ Yii::$app->session->setFlash('success-second','Message');
                                  [
                                      'class' => futuretek\adminlte\widget\TimelineItem::className(),
                                      'time' => 1400880100,
-                                     'body' => 'Well, i`m informative body'
+                                     'body' => 'Well, i`m informative body',
                                      'iconClass'=>'fa fa-cloud',
-                                     'iconBg'=>futuretek\adminlte\widget\Timeline::TYPE_BLUE'
+                                     'iconBg'=>futuretek\adminlte\widget\Timeline::TYPE_BLUE,
                                  ]
                              ),
-                              ],
-                '1353182717'=>[....],
-                '1331361126'=>[....],
+                      ],
          ],
-         'dataFunc' => function ($data) { return date('d.m, Y', $data); }
+         'dateFunc' => function ($data) { return date('d.m, Y', $data); }
      ]
  ) ?>
 ```
