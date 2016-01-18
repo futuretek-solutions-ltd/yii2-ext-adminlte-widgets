@@ -13,6 +13,7 @@ Usage
              'left_tools'=>'<button class="btn btn-success btn-xs create_button" ><i class="fa fa-plus-circle"></i> Something</button>',
              'tooltip'=>'Tooltip',
              'title'=>'Title',
+             'bodyClass' => 'no-padding',
              'footer'=>'Footer',
              'collapse'=>true
          ])?>
