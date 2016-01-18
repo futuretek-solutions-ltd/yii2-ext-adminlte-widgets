@@ -56,6 +56,11 @@ class Box extends Widget
     public $footer = '';
 
     /**
+     * @var string
+     */
+    public $bodyClass = '';
+
+    /**
      * @var boolean $collapse show or not Box - collapse button*
      */
     public $collapse = false;
@@ -145,7 +150,7 @@ class Box extends Widget
             . (!$this->title && !$this->collapse && !$this->custom_tools && !$this->left_tools
                 ? ''
                 : $header)
-            . '<div class="box-body">';
+            . '<div class="box-body ' . $this->bodyClass . '">';
     }
 
     public function run()
