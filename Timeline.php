@@ -120,7 +120,9 @@ class Timeline extends Widget
             if ($ev->header) {
                 $item .= Html::tag('h3', $ev->header, ['class' => 'timeline-header ' . (!$ev->body && !$ev->footer ? 'no-border' : '')]);
             }
-            $item .= Html::tag('div', $ev->body, ['class' => 'timeline-body']);
+            if ($ev->body) {
+                $item .= Html::tag('div', $ev->body, ['class' => 'timeline-body']);
+            }
             if ($ev->footer) {
                 $item .= Html::tag('div', $ev->footer, ['class' => 'timeline-footer']);
             }
