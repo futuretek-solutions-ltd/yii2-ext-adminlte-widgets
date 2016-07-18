@@ -22,6 +22,9 @@ class Alert extends Widget
     /**@var boolean $closable show or not close button* */
     public $closable = true;
 
+    /**@var string $header Alert header* */
+    public $header = '';
+
     /**@var string $text your message* */
     public $text = '';
 
@@ -63,13 +66,12 @@ class Alert extends Widget
         if ($this->closable) {
             Html::addCssClass($this->options, 'alert-dismissable');
         }
-        echo Html::tag('div',
-            '<i class="' . $this->icon . '"></i>'
-            . (!$this->closable ? ''
-                : '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>')
-            . $this->text
-            , $this->options
-        );
+
+        $icon = $this->icon ? '<i class="' . $this->icon . '"></i>' : '';
+        $header = $this->header ? '<h4>' . $icon . ' ' . $this->header . '</h4>' : $icon;
+        $closable = $this->closable ? '<button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>' : '';
+
+        echo Html::tag('div', $closable . $header . $this->text, $this->options);
     }
 
 }
