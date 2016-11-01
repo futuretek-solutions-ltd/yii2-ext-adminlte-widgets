@@ -1,10 +1,8 @@
-Widgets for AdminLte theme
-===========================
+# Widgets for AdminLte theme
 
-Usage
-------
+## Usage
 
-* Box
+### Box
 
 ```php
     <?php futuretek\adminlte\widget\Box::begin([
@@ -21,7 +19,7 @@ Usage
     <?php futuretek\adminlte\widget\Box::end()?>
 ```
 
-* Tile
+### Tile
 
 ```php
    <?php futuretek\adminlte\widget\Tile::begin([
@@ -37,7 +35,7 @@ Usage
    <?php futuretek\adminlte\widget\Tile::end()?>
 ```
 
-* SmallBox
+### SmallBox
 
 ```php
    <?= futuretek\adminlte\widget\SmallBox::widget([
@@ -50,7 +48,7 @@ Usage
     ]);?>
 ```
 
-* InfoBox
+### InfoBox
 
 ```php
     <?= futuretek\adminlte\widget\InfoBox::widget([
@@ -64,7 +62,7 @@ Usage
     ])?>
 ```
 
-* Callout
+### Callout
 
 ```php
    <?= futuretek\adminlte\widget\Callout::widget([
@@ -74,7 +72,7 @@ Usage
     ]);?>
 ```
 
-* Alert
+### Alert
 
 ```php
     <?= futuretek\adminlte\widget\Alert::widget([
@@ -84,7 +82,7 @@ Usage
     ]);?>
 ```
 
-Add in layout
+**Add in layout**
 
 ```php
     <?= futuretek\adminlte\widget\FlashAlerts::widget([
@@ -97,7 +95,7 @@ Add in layout
     ]);?>
 ```
 
-And set flash messages anywhere
+**And set flash messages anywhere**
 
 ```php
 Yii::$app->session->setFlash('info1','Message1');
@@ -107,7 +105,7 @@ Yii::$app->session->setFlash('success-first','Message');
 Yii::$app->session->setFlash('success-second','Message');
 ```
 
-* Timeline
+### Timeline
  
 ```php
 <?= futuretek\adminlte\widget\Timeline::widget(
@@ -153,7 +151,7 @@ Yii::$app->session->setFlash('success-second','Message');
  ) ?>
 ```
 
-Example TimeLine Generator
+**Example TimeLine Generator**
 
 ```php
 <?php
@@ -202,3 +200,8 @@ echo futuretek\adminlte\widget\Timeline::widget(
 
 ```
 
+## Changelog
+
+### 1.0.0
+
+* Initial version
